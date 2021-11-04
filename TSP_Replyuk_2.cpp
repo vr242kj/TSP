@@ -34,7 +34,6 @@ int main() {
     printf("Rows: ");
     scanf("%d", &rows);
 
-    //int NODES = (1+sqrt(1+(4*2*rows)))/2-1;
     int NODES = (1 + sqrt(1 + (4 * 2 * rows))) / 2;
 
     printf("Uzlov: %d\n", NODES);
@@ -42,14 +41,12 @@ int main() {
     a = (int *) malloc(NODES + 1 * sizeof(int));
     c = (int *) malloc((NODES) * sizeof(int));//7
 
-    //int ary[rows][cols]; 3 cols
 
     float **ary = (float **) malloc(rows * sizeof(float *));
     for (int i = 0; i < rows; i++) {
         ary[i] = (float *) malloc(cols * sizeof(float));
     }
 
-    // massiv dvoh uzlov, 2 cols
 
     int **ary2 = (int **) malloc(rows * sizeof(int *));
     for (int i = 0; i < rows; i++) {
@@ -59,18 +56,7 @@ int main() {
 
     float w[rows];
     bool check[rows];
-    /*
-        for (int i = 0; i < rows; i++)
-        {
-            for (int j = 0; j < cols; j++)
-            {
-                fscanf(file, "%d", &ary[i][j]);
-                w[i] = ary[i][2];
-                printf("%d ", ary[i][j]);
-            }
-            printf("\n");
-        }
-        */
+  
     while (!feof(file)) {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
@@ -106,19 +92,14 @@ int main() {
     }
 
     c[0] = 1;
-    //c[1] = 1;
     for (int i = 1; i <= NODES; i++) {
         c[i] = 0;
     }
 
-    //a[0] = 1;
-    //c[1] = 1;
-    //c[2] = 1;
+    
 
 
-    //a[0] = rand() % 5 + 1;
     a[0] = ary2[rand() % rows][rand() % 1];
-    //a[0] = 7;
     c[a[0]] = 1;
     printf("Randomne cislo: %d\n", a[0]);
 
@@ -131,10 +112,6 @@ int main() {
         a[++node] = min;
         size++;
 
-        /*	for(int i = 0;i<size;i++){
-                printf("Node(func)-%d-",a[i]);
-            }
-            printf("\n");*/
 
         if (size > 2) {
             a = insertion(a, size, ary, rows, cols, w, rows);
@@ -142,7 +119,6 @@ int main() {
                 printf("Node(insert)-%d-",a[i]);
             }*/
         }
-        //printf("\n");
     }
     // Cesta 
 
